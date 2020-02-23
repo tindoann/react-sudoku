@@ -7,14 +7,17 @@ export default class SudokuBoard extends Component {
 
     return (
       <div>
-        {sudoku.rows.map(row => {
+
+        {!sudoku.solveTime && <Timer start={sudoku.startTime} />}
+        {sudoku.solveTime && <Result sudoku={sudoku} />}
+        {sudoku.rows.map(row => (
           <div className='row' key={row.index}>
-            {row.cols(field => (
-              <SudoKuField field={col} key={field.col} />
+            {row.cols.map(field => (
+              <SudoKuField field={field} key={field.col} onChange={onChange} />
             ))}
           </div>
-        })}
+        ))}
       </div>
-    )
+    ); 
   }
 }
