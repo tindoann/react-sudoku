@@ -23,7 +23,7 @@ function generateSudoku() {
     rows: [], 
     solution: formattedSolution,
     startTime: new Date(), 
-    solvedTime: new Date()
+    solvedTime: null
   }; 
 
   for (let i = 0; i < 9; i ++) {
@@ -53,12 +53,12 @@ function checkSolution(sudoku) {
       return false;
     }
   }
-
+  return true; 
 }
 
 class App extends Component {
   constructor(props) {
-    super(props) {
+    super(props); 
       this.state = produce({}, () => ({
         sudoku: generateSudoku()
       })); 
