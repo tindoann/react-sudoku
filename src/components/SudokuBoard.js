@@ -13,7 +13,7 @@ export default class SudokuBoard extends Component {
         {sudoku.rows.map(row => (
           <div className='row' key={row.index}>
             {row.cols.map(field => (
-              <SudoKuField field={field} key={field.col} onChange={onChange} />
+              <SudokuField field={field} key={field.col} onChange={onChange} />
             ))}
           </div>
         ))}
